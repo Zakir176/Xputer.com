@@ -1,0 +1,115 @@
+// File: server.js
+
+const express = require('express');
+const bcrypt = require('bcryptjs');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const session = require('express-session');
+const mongoose = require('mongoose');
+const cors = require('cors');
+
+// Connect to MongoDB
+mongoose.connect('mongodb://localhost:27017/dashboard_project', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+const UserSchema = new mongoose.Schema({
+  username: { type: String, unique: true, required: true },
+  password: { type: String, required: true },
+  role: { type: String, default: 'member' }, // 'admin' or 'member'
+});
+const User = mongoose.model('User', UserSchema);
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Session setup
+app.use(
+  session({
+    secret: 'your-secret-key',
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+
+passport.use(
+  new LocalStrategy(async (username, password, done) => {
+    try {
+      const user = await User.findOne({ username });
+      if (!user) return done(null, false, { message: 'Incorrect username.' });
+
+      const isMatch = await bcrypt.compare(password, user.password);
+      if (!isMatch) return done(null, false, { message: 'Incorrect password.' });
+
+      return done(null, user);
+    } catch (err) {
+      return done(err);
+    }
+  })
+);
+
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+
+passport.deserializeUser(async (id, done) => {
+  try {
+    const user = await User.findById(id);
+    done(null, user);
+  } catch (err) {
+    done(err);
+  }
+});
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Routes
+app.post('/register', async (req, res) => {
+  try {
+    const { username, password, role } = req.body;
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const newUser = new User({
+      username,
+      password: hashedPassword,
+      role,
+    });
+
+    await newUser.save();
+    res.status(201).json({ message: 'User registered successfully.' });
+  } catch (error) {
+    res.status(500).json({ error: 'Error registering user.' });
+  }
+});
+
+app.post('/login', passport.authenticate('local'), (req, res) => {
+  res.status(200).json({ message: 'Login successful.', user: req.user });
+});
+
+app.get('/dashboard', (req, res) => {
+  if (!req.isAuthenticated()) {
+    return res.status(401).json({ message: 'Unauthorized access.' });
+  }
+
+  res.status(200).json({
+    message: 'Welcome to the dashboard!',
+    user: req.user,
+  });
+});
+
+app.post('/logout', (req, res) => {
+  req.logout(err => {
+    if (err) return res.status(500).json({ error: 'Logout failed.' });
+    res.status(200).json({ message: 'Logged out successfully.' });
+  });
+});
+
+// Start server
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});

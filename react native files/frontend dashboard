@@ -1,0 +1,116 @@
+// File: frontend/src/App.js
+
+import React, { useState } from 'react';
+import axios from 'axios';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import './App.css';
+
+function App() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [message, setMessage] = useState('');
+  const [user, setUser] = useState(null);
+
+  const handleRegister = async () => {
+    try {
+      const response = await axios.post('http://localhost:3000/register', {
+        username,
+        password,
+      });
+      setMessage(response.data.message);
+    } catch (error) {
+      setMessage(error.response.data.error);
+    }
+  };
+
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post('http://localhost:3000/login', {
+        username,
+        password,
+      }, { withCredentials: true });
+      setUser(response.data.user);
+      setMessage(response.data.message);
+    } catch (error) {
+      setMessage(error.response.data.error || 'Login failed.');
+    }
+  };
+
+  const handleLogout = async () => {
+    try {
+      await axios.post('http://localhost:3000/logout', {}, { withCredentials: true });
+      setUser(null);
+      setMessage('Logged out successfully.');
+    } catch (error) {
+      setMessage('Logout failed.');
+    }
+  };
+
+  const Home = () => (
+    <div>
+      <h1>Welcome to the Dashboard Project</h1>
+      {!user ? (
+        <div className="auth-container">
+          <h2>Login or Register</h2>
+          <input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            className="input-field"
+          />
+          <br />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="input-field"
+          />
+          <br />
+          <div className="button-group">
+            <button onClick={handleRegister} className="btn btn-register">Register</button>
+            <button onClick={handleLogin} className="btn btn-login">Login</button>
+          </div>
+        </div>
+      ) : (
+        <div className="dashboard-container">
+          <h2>Welcome, {user.username}!</h2>
+          <Link to="/dashboard" className="btn btn-login">Go to Dashboard</Link>
+          <button onClick={handleLogout} className="btn btn-logout">Logout</button>
+        </div>
+      )}
+      {message && <p className="message">{message}</p>}
+    </div>
+  );
+
+  const Dashboard = () => (
+    <div className="dashboard-container">
+      <h1>Dashboard</h1>
+      <p>This is where your statistics and progress will be displayed.</p>
+      <Link to="/" className="btn btn-register">Back to Home</Link>
+    </div>
+  );
+
+  return (
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          <h1>Dashboard Project</h1>
+          <nav>
+            <Link to="/" className="btn btn-login">Home</Link>
+            {user && <Link to="/dashboard" className="btn btn-register">Dashboard</Link>}
+          </nav>
+        </header>
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
+  );
+}
+
+export default App;

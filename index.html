@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xputer.com - Home</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background-color: #002855;
+            color: white;
+            padding: 30px 10%;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            letter-spacing: 1.5px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #002855;
+            margin: 0 15px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 10px 15px;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #f4f4f9;
+            border-color: #002855;
+        }
+
+        /* Main Section */
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px 10%;
+            background-color: #ffffff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin: 20px 10%;
+        }
+
+        .hero-content {
+            max-width: 50%;
+        }
+
+        .hero-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #002855;
+        }
+
+        .hero-content p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .hero-content a {
+            text-decoration: none;
+            background-color: #002855;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .hero-content a:hover {
+            background-color: #001d40;
+        }
+
+        .hero-image {
+            max-width: 40%;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Courses Section */
+        .courses {
+            padding: 50px 10%;
+            background-color: #f4f4f9;
+        }
+
+        .courses h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #002855;
+        }
+
+        .course-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .course-item {
+            background-color: white;
+            width: 30%;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .course-item h3 {
+            font-size: 1.5rem;
+            color: #002855;
+            margin-bottom: 10px;
+        }
+
+        .course-item p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .course-item a {
+            text-decoration: none;
+            background-color: #002855;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .course-item a:hover {
+            background-color: #001d40;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #002855;
+            color: white;
+            text-align: center;
+            padding: 15px 10%;
+            margin-top: 50px;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Xputer.com</h1>
+        <p>Your gateway to professional learning and growth.</p>
+    </header>
+
+    <nav>
+        <a href="dash.html">dashboard</a>
+        <a href="about.html">About</a>
+        <a href="#">Courses</a>
+        <a href="#">Community</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Empower Your Knowledge</h2>
+            <p>Explore expertly curated courses and join a thriving community of professionals and learners. Achieve your goals with Xputer.com.</p>
+            <a href="#">Get Started</a>
+        </div>
+        <div class="hero-image">
+            <img src="images/1.webp" alt="Professional Learning Community">
+        </div>
+    </section>
+
+    <section class="courses">
+        <h2>Our Popular Courses</h2>
+        <div class="course-list">
+            <div class="course-item">
+                <h3>Web Development</h3>
+                <p>Master HTML, CSS, and JavaScript to build responsive websites.</p>
+                <a href="#">Learn More</a>
+            </div>
+            <div class="course-item">
+                <h3>Data Science</h3>
+                <p>Learn Python, data analysis, and machine learning techniques.</p>
+                <a href="#">Learn More</a>
+            </div>
+            <div class="course-item">
+                <h3>Digital Marketing</h3>
+                <p>Understand SEO, social media marketing, and analytics tools.</p>
+                <a href="#">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer>
+        <p>&copy; 2025 Xputer.com. All rights reserved.</p>
+        <p>Designed  excellence and innovation by Zakir.</p>
+    </footer>
+</body>
+</html>

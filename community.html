@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community - Xputer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            font-size: 16px;
+            padding: 20px;
+        }
+
+        .navbar {
+            background-color: #2c3e50;
+            padding: 10px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #fff;
+            font-size: 1.8em;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links li {
+            display: inline;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1em;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #e67e22;
+        }
+
+        .container {
+            margin-top: 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            color: #3a3a3a;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .community-content {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .section {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .members {
+            display: flex;
+            gap: 20px;
+        }
+
+        .member {
+            text-align: center;
+        }
+
+        .member-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #e67e22;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #d35400;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="logo">Xputer.com</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Community Section -->
+    <div class="container">
+        <header class="header">
+            <h1>Welcome to the Xputer Community</h1>
+            <p>Join our vibrant, collaborative space where learners, educators, and creators connect and grow together.</p>
+        </header>
+
+        <section class="community-content">
+            <!-- Featured Members -->
+            <div class="section">
+                <h2>Featured Members</h2>
+                <p>Meet some of our most active contributors who make learning and collaboration exciting.</p>
+                <div class="members">
+                    <div class="member">
+                        <img src="member1.jpg" alt="Member 1" class="member-photo">
+                        <h3>Jane Doe</h3>
+                        <p>Expert in Web Development</p>
+                    </div>
+                    <div class="member">
+                        <img src="member2.jpg" alt="Member 2" class="member-photo">
+                        <h3>John Smith</h3>
+                        <p>Data Science Enthusiast</p>
+                    </div>
+                    <div class="member">
+                        <img src="member3.jpg" alt="Member 3" class="member-photo">
+                        <h3>Aisha Khan</h3>
+                        <p>AI and Machine Learning Specialist</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Discussion Forums -->
+            <div class="section">
+                <h2>Discussion Forums</h2>
+                <p>Engage in meaningful conversations on topics that matter to you.</p>
+                <ul class="forums">
+                    <li><a href="#">General Discussions</a></li>
+                    <li><a href="#">Web Development</a></li>
+                    <li><a href="#">Data Science and AI</a></li>
+                    <li><a href="#">Creative Projects</a></li>
+                </ul>
+            </div>
+
+            <!-- Community Events -->
+            <div class="section">
+                <h2>Community Events</h2>
+                <p>Stay updated on upcoming workshops, webinars, and networking events.</p>
+                <ul class="events">
+                    <li><strong>Workshop:</strong> Building Responsive Websites - <em>Jan 25, 2025</em></li>
+                    <li><strong>Webinar:</strong> Introduction to AI for Beginners - <em>Feb 10, 2025</em></li>
+                    <li><strong>Networking Night:</strong> Connect with Professionals - <em>Mar 5, 2025</em></li>
+                </ul>
+            </div>
+
+            <!-- Join the Community -->
+            <div class="section">
+                <h2>Join Us</h2>
+                <p>Ready to become a part of the Xputer community? Sign up now and start learning, sharing, and collaborating with like-minded individuals.</p>
+                <a href="signup.html" class="cta-button">Join the Community</a>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
