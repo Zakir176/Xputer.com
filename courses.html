@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses & Playlists - Xputer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            font-size: 16px;
+            padding: 20px;
+        }
+
+        .navbar {
+            background-color: #2c3e50;
+            padding: 10px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #fff;
+            font-size: 1.8em;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links li {
+            display: inline;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1em;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #e67e22;
+        }
+
+        .container {
+            margin-top: 80px;
+            max-width: 1200px;
+            margin: 80px auto 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .course-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .course-card img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .course-card h2 {
+            font-size: 1.5em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .course-card p {
+            font-size: 1em;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #e67e22;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #d35400;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="logo">Xputer.com</a>
+            <ul class="nav-links">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Courses Section -->
+    <div class="container">
+        <h1>Our Courses & Playlists</h1>
+        <p style="text-align: center;">Discover a variety of courses and playlists designed to help you learn and grow in your field of interest.</p>
+
+        <div class="courses-grid">
+            <div class="course-card">
+                <img src="course1.jpg" alt="Course 1">
+                <h2>Web Development Masterclass</h2>
+                <p>Learn to build stunning websites from scratch with HTML, CSS, JavaScript, and more!</p>
+                <a href="#" class="cta-button">Explore Course</a>
+            </div>
+
+            <div class="course-card">
+                <img src="course2.jpg" alt="Course 2">
+                <h2>Data Science Essentials</h2>
+                <p>Master data analysis, visualization, and machine learning techniques step-by-step.</p>
+                <a href="#" class="cta-button">Explore Course</a>
+            </div>
+
+            <div class="course-card">
+                <img src="course3.jpg" alt="Course 3">
+                <h2>Creative Design Playlist</h2>
+                <p>Dive into the world of digital design with tutorials on Photoshop, Illustrator, and more.</p>
+                <a href="#" class="cta-button">Explore Playlist</a>
+            </div>
+
+            <div class="course-card">
+                <img src="course4.jpg" alt="Course 4">
+                <h2>AI and Machine Learning</h2>
+                <p>Explore the fundamentals of artificial intelligence and build intelligent applications.</p>
+                <a href="#" class="cta-button">Explore Course</a>
+            </div>
+
+            <div class="course-card">
+                <img src="course5.jpg" alt="Course 5">
+                <h2>Personal Development</h2>
+                <p>Enhance your productivity, communication skills, and overall personal growth.</p>
+                <a href="#" class="cta-button">Explore Playlist</a>
+            </div>
+
+            <div class="course-card">
+                <img src="course6.jpg" alt="Course 6">
+                <h2>Cybersecurity Basics</h2>
+                <p>Understand the principles of cybersecurity to protect yourself and your systems online.</p>
+                <a href="#" class="cta-button">Explore Course</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
