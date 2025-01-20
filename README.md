@@ -59,4 +59,3 @@ Depending on your preferences and budget, here's what I suggest:
 2. **Design**: Do you have a specific look in mind, or should I design a mockup?
 3. **Development**: I can set up the project structure and begin coding.
 
-Would you like to proceed with a prototype, or would you like me to draft a detailed roadmap first? 😊
